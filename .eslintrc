@@ -3,7 +3,13 @@
    * ENVIRONMENTS
    * =================
    */
-
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react"],
   // Define globals exposed by modern browsers.
   "browser": true,
 
@@ -59,4 +65,5 @@
 
   // Suppress warnings about == null comparisons.
   "eqnull": true
+
 }

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Table from '../components/Table';
