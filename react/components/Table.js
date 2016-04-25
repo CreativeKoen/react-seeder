@@ -8,16 +8,9 @@ export default class Table extends Component {
     super();
   }
 
-  // componentDidMount() {
-  // }
-	//
-  // componentDidUnmount() {
-  //   // this.setState({ dataRows: randomSkills });
-  // }
-
   render () {
     return (
-			<table class="table table-striped">
+			<table className="table table-striped">
 				<thead>
 					<tr>
 						<th>Firstname</th>
@@ -26,8 +19,8 @@ export default class Table extends Component {
 					</tr>
 				</thead>
 				<tbody>
-					{this.props.rows.map( (row, index) => {
-						return <TableRow row={row} key={index}/>
+					{this.props.users.map( (row) => {
+						return <TableRow row={row} key={row.id} />
 					})}
 				</tbody>
 			</table>
