@@ -16,16 +16,21 @@ let paths = {
   watch: {
     react: 'react/**/**/*.js',
     backend: 'database/**/**/*.js',
+    views: 'views/*.jade',
+    styles: 'resources/stylus/**/*.styl',
   },
 	test: {
 		react: 'react/**/**/.test.js'
 	},
   dest: {
-    public: 'public/assets/'
+    public: 'public/assets/',
+    views: 'public/'
   },
   files: {
+    views: 'views/*.jade',
     react: 'react/**/**/*.js',
     webpackreact: 'react/App.js',
+    stylus: 'resources/stylus/app.styl',
   },
 }
 

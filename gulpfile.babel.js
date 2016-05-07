@@ -10,9 +10,10 @@
 import './tools/config';
 import './tools/webpack';
 import './tools/server';
+import './tools/stylus';
+import './tools/jade';
 import './tools/build';
 import './tools/testing';
-//import 'tools/stylus';
 
 // No business logic in this file.
 

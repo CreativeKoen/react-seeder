@@ -15,7 +15,8 @@ gulp.task('server', () => {
     // ,browser: ['Firefox']
   });
 
-  gulp.watch(paths.watch.react).on('change', gulp.parallel('webpack', browserSync.reload) );
+  gulp.watch(paths.watch.react).on('change', gulp.series('webpack', browserSync.reload) );
+  gulp.watch(paths.watch.views).on('change', gulp.series('jade', browserSync.reload) );
+  gulp.watch(paths.watch.styles).on('change', gulp.series('stylus', browserSync.reload) );
   // gulp.watch(paths.watch.backend).on('change', browserSync.reload );
-  // gulp.watch(paths.watch.views).on('change', browserSync.reload);
 });

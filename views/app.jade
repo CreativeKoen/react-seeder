@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+	head
+		title React Seeder
+		link(rel="stylesheet" href="assets/css/app.min.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+	body
+		.container
+			h1 React Seeder - Front end styled by Stylus
+		.container
+			section
+				.form.span2
+					form(action="")
+						.form-group
+							input(type="text" placeholder="firstname" name="firstname")
+							input(type="text" placeholder="lastname" name="lastname")
+							input(type="text" placeholder="email" name="email")
+						.form-group
+							input(type="submit" value="send" name="submit")
+				.table_wrapper.span2
+					table(class="table")
+						tr
+							th firstname
+							th lastname
+							th email
+						tr
+							td john
+							td do
+							td john@gmail.com
+						tr
+							td john
+							td do
+							td john@gmail.com
