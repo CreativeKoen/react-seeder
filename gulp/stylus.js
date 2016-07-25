@@ -1,41 +1,33 @@
 'use strict';
 import gulp from 'gulp';
-import { paths, banner } from './config';
-import gulpLoadPlugins from 'gulp-load-plugins';
+import config as c from './config';
+import gulpLoad-plugins from 'gulp-load-plugins';
 import pkg from '../package.json';
 const $ = gulpLoadPlugins();
 
-import nib from 'nib';
-import rupture from 'rupture';
 import poststylus from 'poststylus';
 import autoprefixer from 'autoprefixer';
-import lost from 'lost';
-
-let compilers = [
-  lost(),
-  autoprefixer()
-];
-
+// import them
+// require('nib')(),
+// require('rupture')(),
+// require('jeet')(),
+// require('poststylus')(autoprefixer)
 gulp.task('stylus', () => {
-  return gulp.src(paths.files.stylus)
+  return gulp.src(config.paths.files.stylus)
     .pipe($.stylus({
       use: [
-        nib(), rupture(),
-        poststylus(compilers)
       ]
     }))
     .on('error', (err) => { console.error(err); })
     .pipe($.cssnano())
-    .pipe($.header(banner, {pkg: pkg}))
+    .pipe($.header(config.banner, {pkg: pkg}))
     .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest(paths.dest.public+'css'));
+    .pipe(gulp.dest(config.PUBLICPATH+'css'));
 });
 /*
 add this to the package.json and uncomment it in
 the server.js so browserSync will pick it up
 
-
-"lost": "^6.7.2",
 "jeet": "^6.1.2",
 "nib": "^1.1.0",
 "rupture": "^0.6.1",

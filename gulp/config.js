@@ -16,21 +16,27 @@ let paths = {
   watch: {
     react: 'react/**/**/*.js',
     backend: 'database/**/**/*.js',
-    views: 'views/*.jade',
-    styles: 'resources/stylus/**/*.styl',
+    views: 'resources/views/**/**/*.pug',
+    less: 'resources/less/**/**/*.less',
+    sass: 'resources/sass/**/**/*.scss',
+    stylus: 'resources/stylus/**/**/*.styl'
   },
 	test: {
 		react: 'react/**/**/.test.js'
 	},
   dest: {
-    public: 'public/assets/',
-    views: 'public/'
+    public: 'public/Static/',
+    publicViews: 'public/',
+    dist: 'dist/Static/',
+    distViews: 'dist/'
   },
   files: {
-    views: 'views/*.jade',
     react: 'react/**/**/*.js',
     webpackreact: 'react/App.js',
+    views: 'resources/views/**/**/*.pug',
+    less: 'resources/less/app.less',
     stylus: 'resources/stylus/app.styl',
+    sass: 'resources/sass/app.scss'
   },
 }
 

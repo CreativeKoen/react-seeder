@@ -1,0 +1,148 @@
+.debug {
+    * { background: rgba(0,0,0, .05); }
+}
+
+//-------------- fonts and variables --------------//
+
+//@import url(https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:600,400);
+
+@font-face {
+    font-family: 'font';
+    src: url('font.woff2') format('woff2'),
+         url('font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$fontStandaard:  'microsoft_yi_baitiregular', verdana, arial; 
+$primary: #95c447;
+$secondary: #d1d1d2;
+
+$kopText: #5d5d5e;
+$plainText: #a1a1a1;
+$navMutedText: #dadadb;
+$footerText: #727273;
+
+// @secondary-dark: #7b6c66;
+// @bg-social-icons: #d1db69;
+// @line: #ededed;
+
+$copyright: #b7aaa5; 
+
+// --------------- Base (no ids or classes) ---------------//
+html, body {
+    height: 100%;
+    min-width: 100%;
+    background: #fff;
+}
+
+html {
+    font-size: 62.5% !important;
+}
+
+body {
+    color: #3e3d3d;
+    font-size: 100% !important;
+    background: #fff;
+    font-family: $fontStandaard;
+    position: relative;
+}
+
+h1 {
+  font: 3.5rem/1.5 $fontStandaard;
+  color: $secondary;
+}
+
+h2 {
+    font: 2.5rem/1.5 $fontStandaard;
+    color: $kopText;
+    position: relative;
+}
+
+h3, .h3 {
+    font: 2.2rem/1.3 $fontStandaard;
+    color: $kopText;
+}
+
+p {
+    font: 1.8rem/1.3 $fontStandaard;
+    color: $plainText;
+}
+a, a span {
+    font: 1.8rem/1.3 $fontStandaard;
+    color: $plainText;
+}
+
+.spacer {
+    display: block;
+    position: relative;
+    line-height: 2em;
+    height: 2em;
+    width: 100%;
+}
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    ul li,
+    p,
+    a {
+        font-size: 2rem;
+    }
+    ul li a {
+        font-size: 2rrem;
+    }
+    a span {
+        font: inherit;
+    }
+}
+#wpr-main {
+	height: 100vh;
+	width: 100%;
+	background: url('') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.cnr-main {
+	padding: 1em;
+	display: block;
+	position: relative;
+}
+
+.main-nav {
+	display: flex;
+	flex-direction: row;
+	justify-content:space-between;
+	.brand {
+		color: #fff;
+	}
+	ul {
+		margin: 1.5em 0 0 0;
+		li {
+			display: inline;
+			a {
+				padding: 1.5em 2em;
+			}
+		}
+	}
+}
+
+.intro-text {
+	position: relative;
+	display: block;
+	width: 1170px;
+	margin: 10% auto 0 auto;
+	color: #fff;
+}

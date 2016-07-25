@@ -14,3 +14,12 @@ gulp.task('webpack', (done) => {
   .pipe(gulp.dest(paths.dest.public+'js'));
   done();
 });
+
+gulp.task('webpack.dist', (done) => {
+  return gulp.src(paths.files.webpackreact)
+  .pipe(webpack( require('../webpack.config.js') ))
+  .pipe($.header(banner, {pkg: pkg}))
+  .pipe($.uglify())
+  .pipe(gulp.dest(paths.dest.dist+'js'));
+  done();
+});
