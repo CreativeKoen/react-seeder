@@ -16,6 +16,9 @@ gulp.task('server', () => {
   });
 
   gulp.watch(paths.watch.react).on('change', gulp.parallel('webpack', browserSync.reload) );
-  // gulp.watch(paths.watch.backend).on('change', browserSync.reload );
-  // gulp.watch(paths.watch.views).on('change', browserSync.reload);
+  gulp.watch(paths.watch.views).on('change', gulp.series('views', browserSync.reload) );
+
+  gulp.watch(paths.watch.less).on('change', gulp.series('less', browserSync.reload) );
+  gulp.watch(paths.watch.stylus).on('change', gulp.series('stylus', browserSync.reload) );
+  gulp.watch(paths.watch.sass).on('change', gulp.series('sass', browserSync.reload) );
 });

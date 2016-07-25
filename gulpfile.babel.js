@@ -7,12 +7,14 @@
  * Learn more at: http://gulpjs.com
  */
 
-import './tools/config';
-import './tools/webpack';
-import './tools/server';
-import './tools/build';
-import './tools/testing';
-//import 'tools/stylus';
+import './gulp/config';
+import './gulp/server';
+import './gulp/webpack';
+import './gulp/styles';
+import './gulp/views';
+import './gulp/build';
+import './gulp/testing';
+import './gulp/commen';
 
 // No business logic in this file.
 
