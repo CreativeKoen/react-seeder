@@ -4,3 +4,5 @@
 .env
 /public/vendor/
 /public/assets/
+/public/Static/
+/public/Media/
