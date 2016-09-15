@@ -11,14 +11,16 @@ gulp.task('server', () => {
       baseDir: './public'
     },
     port: 8000,
-    ui: false
-    // ,browser: ['Firefox']
+    ui: false,
+    external: false,
+    browser: ['Firefox']
+    //,plugins: ['bs-fullscreen-message']
   });
 
-  gulp.watch(paths.watch.react).on('change', gulp.parallel('webpack', browserSync.reload) );
-  gulp.watch(paths.watch.views).on('change', gulp.series('views', browserSync.reload) );
+  gulp.watch(paths.watch.react).on('change', gulp.parallel('webpack'));
+  gulp.watch(paths.watch.views).on('change', gulp.series('views', browserSync.reload));
 
-  gulp.watch(paths.watch.less).on('change', gulp.series('less', browserSync.reload) );
-  gulp.watch(paths.watch.stylus).on('change', gulp.series('stylus', browserSync.reload) );
-  gulp.watch(paths.watch.sass).on('change', gulp.series('sass', browserSync.reload) );
+  gulp.watch(paths.watch.less).on('change', gulp.series('less'));
+  gulp.watch(paths.watch.stylus).on('change', gulp.series('stylus'));
+  gulp.watch(paths.watch.sass).on('change', gulp.series('sass'));
 });

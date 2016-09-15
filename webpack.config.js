@@ -3,7 +3,7 @@ module.exports = {
   entry: [
     './react/App.js'
   ],
-	devtool: 'inline-source-map',
+  //devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'public/assets/js'),
     filename: 'bundle.js'
