@@ -6,25 +6,21 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 const todos = [
   {
     ID: 1,
-    type: 'todo',
     text: 'check facebook',
     completed: true
   },
   {
     ID: 2,
-    type: 'todo',
     text: 'go to archery training',
     completed: false
   },
   {
     ID: 3,
-    type: 'todo',
     text: 'have fun',
     completed: false
   },
   {
     ID: 4,
-    type: 'todo',
     text: 'prepare dinner',
     completed: false
   }
@@ -40,7 +36,7 @@ export function getTodos() {
 }
 
 //export addTodo = (text) => {
-export function addTodo(text, type) {
+export function addTodo(text) {
   return {
     type: ADD_TODO,
     payload: {

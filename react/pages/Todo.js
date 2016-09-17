@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { completeTodo, getTodos } from '../Actions/Actions';
 
 @connect((store) => {
-  console.log(store)
   return {
-    todos: store.TodoReducer.todos.filter(todo => todo.type == 'todo')
+    todos: store.TodoReducer.todos
   }
 })
 export default class Todo extends Component {
@@ -22,14 +21,23 @@ export default class Todo extends Component {
 
   _toggleComplete(todo) {
     const { dispatch } = this.props;
-    dispatch(completeTodo(todo.ID));
+    console.log(todo);
+    //dispatch(completeTodo(todo.ID));
+    //onClick={this.toggleComplete(todo)}
   }
 
-  //<li ></li>onclick={this.toggleComplete()}
   render () {
     let { todos } =  this.props;
+    let classes;
     let maptodos = todos.map( (todo) => {
-      return <li  data-key={todo.ID}>{todo.text}</li>;
+      if ( todo.completed ) {
+        classes = "btn-success"
+      } else {
+        classes = "btn-warning"
+      }
+      return <li
+        className={classes}
+        key={todo.ID}>{todo.text}</li>;
     });
     return (
       <div className="container">
