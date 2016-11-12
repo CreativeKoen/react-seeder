@@ -1,0 +1,10 @@
+{
+  "posts": [
+    { "id": 1, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+    , { "id": 2, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+    , { "id": 3, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+    , { "id": 4, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+    , { "id": 5, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+    , { "id": 6, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+  ]
+}

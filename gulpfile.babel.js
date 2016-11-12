@@ -13,7 +13,7 @@ import './gulp/webpack';
 import './gulp/styles';
 import './gulp/views';
 import './gulp/build';
-import './gulp/testing';
+// import './gulp/testing';
 import './gulp/commen';
 
 // No business logic in this file.

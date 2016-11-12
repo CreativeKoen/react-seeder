@@ -2,8 +2,4 @@
 /.idea
 /node_modules
 .env
-/public/vendor/
-/public/assets/
-/public/Static/
-/public/Media/
-/public/*.html
+/public/static/*
