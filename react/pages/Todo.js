@@ -42,7 +42,7 @@ export default class Todo extends Component {
     return (
       <div className="container">
         <div className="row">
-          <h1 className="text-center">Todos</h1>
+          <h1 className="text-center">Todoss</h1>
           <hr />
           <div className="col-md-8 col-md-offset-2">
             <ul>
@@ -54,4 +54,3 @@ export default class Todo extends Component {
     )
   }
 }
-

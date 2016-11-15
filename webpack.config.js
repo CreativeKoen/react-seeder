@@ -1,21 +1,34 @@
-var path = require('path');
+var path    = require('path');
+var webpack = require('webpack');
+
 module.exports = {
-  entry: {
-    main: './react/App.js'
-  },
-  devtool: 'eval',
+  entry: path.join(__dirname, 'react', 'App.js'),
+  devtool: 'inline-source-maps',
   output: {
-    path: path.resolve(__dirname, 'public/static/js'),
-    filename: '[name].bundle.js'
+    path: path.join(__dirname, 'public', 'Static', 'js'),
+    publicPath: path.join(__dirname, 'public', 'Static', 'js'),
+    filename: 'bundle.js'
+  },
+  devServer: {
+    port: 8000,
+    inline: true,
+    contentBase: 'public/',
+    historyApiFallback: {
+      index: '/index.html'
+    }
   },
   module: {
     loaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel',
+      //test: /\.jsx?$/,
+      test: path.join(__dirname, 'react'),
+      //loaders: ['react-hot-loader/babel', 'babel'],
+      loader: 'babel-loader',
       exclude: /(node_modules|bower_components)/,
+      //queries: {
       query: {
-        presets: ['react', 'es2015', 'stage-0', 'stage-2'],
+        presets: ['react', 'es2015', 'stage-0', 'stage-2', 'react-hmre'],
         plugins: [
+          // 'react-hot-loader/babel',
           'react-html-attrs',
           'transform-class-properties',
           'transform-decorators-legacy',
@@ -24,15 +37,12 @@ module.exports = {
       }
     }]
   },
-  devServer: {
-    hot: true,
-    inline: true,
-    contentBase: './public'
-  },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
+    // new webpack.NoErrorsPlugin(),
+    // new webpack.optimize.OccurenceOrderPlugin()
+
+    // prod
     // new webpack.optimize.DedupePlugin(),
     // new webpack.optimize.UglifyJsPlugin(),
     // new webpack.optimize.AggressiveMergingPlugin(),
