@@ -5,13 +5,13 @@ import PostItem from './Post.item';
 
 const PostList = ({ posts }) => {
   return (
-    <section>
+    <span>
       {
         posts.map( (post) => {
           return <PostItem key={post.id} post={post}/>
         })
       }
-    </section>
+    </span>
   )
 }
 

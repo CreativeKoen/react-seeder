@@ -24,11 +24,11 @@ export default class PostContainer extends Component {
     let { status, posts } = this.props;
     return (
       <div className="container">
+        <div className="page-header">
+          <h1>posts</h1><small className="text-muted">{status}</small>
+        </div>
         <div className="row">
-          <div className="page-header">
-            <h1>posts</h1><small>{status}</small>
-            <PostList posts={posts} />
-          </div>
+          <PostList posts={posts} />
         </div>
       </div>
     )

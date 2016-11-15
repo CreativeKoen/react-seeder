@@ -1,10 +1,11 @@
 'use strict'
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import Home from '../pages/Home';
+
+import PostContainer from './Post/Post.container';
 
 export default (
   <Route path="/">
-    <IndexRoute component={Home}></IndexRoute>
+    <IndexRoute component={PostContainer}></IndexRoute>
   </Route>
 )
