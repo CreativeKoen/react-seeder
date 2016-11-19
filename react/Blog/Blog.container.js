@@ -1,17 +1,17 @@
 'use strict';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAll, getPostSuccess, posts } from './Post.actions';
+import { getAll, getPostSuccess, posts } from './Blog.actions';
 
-import PostList from './Post.List';
+import PostList from '../Post/Post.list';
 
 @connect( (store) => {
   return {
-    posts: store.PostReducer.posts,
-    status: store.PostReducer.status
+    posts: store.BlogReducer.posts,
+    status: store.BlogReducer.status
   }
 })
-export default class PostContainer extends Component {
+export default class BlogContainer extends Component {
   constructor() {
     super();
   }
@@ -25,7 +25,7 @@ export default class PostContainer extends Component {
     return (
       <div className="container">
         <div className="page-header">
-          <h1>posts</h1><small className="text-muted">{status}</small>
+          <h1>React Blog</h1><small className="text-muted">{status}</small>
         </div>
         <div className="row">
           <PostList posts={posts} />

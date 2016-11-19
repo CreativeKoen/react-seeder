@@ -4,14 +4,14 @@ import {
   FETCH_POST_PENDING,
   posts,
   post
-} from './Post.actions';
+} from './Blog.actions';
 
 const initialState = {
   posts: [],
   status: 'idle'
 }
 
-export default function PostReducer(state = initialState, action) {
+export default function BlogReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_POST_SUCCESS:
       return Object.assign({}, state, {
