@@ -1,3 +1,4 @@
+// @flow
 import {
   FETCH_SINGLE_POST_SUCCESS,
   FETCH_SINGLE_POST_ERROR,

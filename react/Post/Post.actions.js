@@ -1,3 +1,4 @@
+// @flow
 import axios from 'axios';
 export const FETCH_SINGLE_POST_SUCCESS = 'FETCH_SINGLE_POST_SUCCESS';
 export const FETCH_SINGLE_POST_PENDING = 'FETCH_SINGLE_POST_PENDING';
