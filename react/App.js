@@ -2,14 +2,20 @@ import React from 'react';
 // import 'babel-polyfill';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-
-import PostContainer from './Post/Post.container';
-
+import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
+import { createHashHistory } from 'history';
+// const
+import Routes from './shared/Routes';
 import store from './Store';
+
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+
 
 render(
   <Provider store={store}>
-    <PostContainer />
-  </Provider>
-  ,document.getElementById('react-app')
+    <Router history={appHistory}>
+      {Routes}
+    </Router>
+  </Provider>,
+  document.getElementById('react-app')
 );
