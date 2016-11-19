@@ -1,14 +1,7 @@
 import axios from 'axios';
-export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
-export const FETCH_POST_PENDING = 'FETCH_POST_PENDING';
-export const FETCH_POST_ERROR   = 'FETCH_POST_ERROR';
-
-export const posts = [
-  { "id": 1, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
-  , { "id": 2, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
-]
-
-export const post = { "id": 1, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+export const FETCH_SINGLE_POST_SUCCESS = 'FETCH_SINGLE_POST_SUCCESS';
+export const FETCH_SINGLE_POST_PENDING = 'FETCH_SINGLE_POST_PENDING';
+export const FETCH_SINGLE_POST_ERROR   = 'FETCH_SINGLE_POST_ERROR';
 
 export function getAll() {
   return function(dispatch, getState) {
@@ -30,7 +23,7 @@ export function show(id) {
 
     dispatch(getPostPending())
 
-    axios.get(`localhost:3000/posts/${id}`)
+    axios.get(`http://localhost:3000/posts/${id}`)
       .then( (res) => {
         dispatch(getPostSuccess(res.data))
       })
@@ -42,7 +35,7 @@ export function show(id) {
 
 export function getPostSuccess(payload) {
   return {
-    type: FETCH_POST_SUCCESS,
+    type: FETCH_SINGLE_POST_SUCCESS,
     payload,
     status: 'Success'
   };
@@ -50,7 +43,7 @@ export function getPostSuccess(payload) {
 
 export function getPostError(payload) {
   return {
-    type: FETCH_POST_ERROR,
+    type: FETCH_SINGLE_POST_ERROR,
     payload,
     status: 'error'
   };
@@ -58,7 +51,7 @@ export function getPostError(payload) {
 
 export function getPostPending(payload = []) {
   return {
-    type: FETCH_POST_PENDING,
+    type: FETCH_SINGLE_POST_PENDING,
     payload,
     status: 'Pending'
   };

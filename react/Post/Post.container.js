@@ -1,13 +1,11 @@
 'use strict';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAll, getPostSuccess, posts } from './Post.actions';
-
-import PostList from './Post.List';
+import { show } from './Post.actions';
 
 @connect( (store) => {
   return {
-    posts: store.PostReducer.posts,
+    post: store.PostReducer.post,
     status: store.PostReducer.status
   }
 })
@@ -17,18 +15,22 @@ export default class PostContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getAll());
+    console.log(this.props);
+    let { postID } = this.props.routeParams;
+    this.props.dispatch(show(postID));
   }
 
   render () {
-    let { status, posts } = this.props;
+    let { status, post } = this.props;
     return (
       <div className="container">
         <div className="page-header">
-          <h1>posts</h1><small className="text-muted">{status}</small>
+          <h1>React Blog</h1>
+          <small className="text-muted">{status}</small>
         </div>
         <div className="row">
-          <PostList posts={posts} />
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
         </div>
       </div>
     )
