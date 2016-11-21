@@ -4,3 +4,4 @@
 .env
 /public/static/*
 /flow-typed/
+/flow-coverage/
