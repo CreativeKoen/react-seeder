@@ -1,46 +1,25 @@
+// @flow
 import axios from 'axios';
-export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
-export const FETCH_POST_PENDING = 'FETCH_POST_PENDING';
-export const FETCH_POST_ERROR   = 'FETCH_POST_ERROR';
+export const FETCH_POST_SUCCESS: string = 'FETCH_POST_SUCCESS';
+export const FETCH_POST_PENDING: string = 'FETCH_POST_PENDING';
+export const FETCH_POST_ERROR: string   = 'FETCH_POST_ERROR';
 
-export const posts = [
-  { "id": 1, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
-  , { "id": 2, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
-]
+export function getAll(): ThunkAction {
+  return function(dispatch: Dispatch): void {
 
-export const post = { "id": 1, "title": "Excepteur sint occaecat", "body": "cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "author": "atom"}
+    dispatch(getPostsPending());
 
-export function getAll() {
-  return function(dispatch, getState) {
-
-    dispatch(getPostPending())
-
-    return axios.get('http://localhost:3000/posts')
+    axios.get('http://localhost:3000/posts')
       .then( (res) => {
-        dispatch(getPostSuccess(res.data))
+        dispatch(getPostsSuccess(res.data));
       })
       .catch( (res) => {
-        dispatch(getPostError(res.data))
+        dispatch(getPostsError(res.data));
       });
     }
 }
 
-export function show(id) {
-  return function(dispatch) {
-
-    dispatch(getPostPending())
-
-    axios.get(`localhost:3000/posts/${id}`)
-      .then( (res) => {
-        dispatch(getPostSuccess(res.data))
-      })
-      .catch( (res) => {
-        dispatch(getPostError(res.data))
-      });
-    }
-}
-
-export function getPostSuccess(payload) {
+export function getPostsSuccess(payload: Array<BlogPost>): BlogAction {
   return {
     type: FETCH_POST_SUCCESS,
     payload,
@@ -48,7 +27,7 @@ export function getPostSuccess(payload) {
   };
 }
 
-export function getPostError(payload) {
+export function getPostsError(payload: Array<BlogPost> | Object): BlogAction {
   return {
     type: FETCH_POST_ERROR,
     payload,
@@ -56,7 +35,7 @@ export function getPostError(payload) {
   };
 }
 
-export function getPostPending(payload = []) {
+export function getPostsPending(payload: Object = {}): Object {
   return {
     type: FETCH_POST_PENDING,
     payload,

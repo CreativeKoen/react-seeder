@@ -1,9 +1,8 @@
+// @flow
 import {
   FETCH_POST_SUCCESS,
   FETCH_POST_ERROR,
-  FETCH_POST_PENDING,
-  posts,
-  post
+  FETCH_POST_PENDING
 } from './Blog.actions';
 
 const initialState = {
@@ -11,7 +10,7 @@ const initialState = {
   status: 'idle'
 }
 
-export default function BlogReducer(state = initialState, action) {
+export default function BlogReducer(state: BlogState = initialState, action: BlogAction): BlogState {
   switch (action.type) {
     case FETCH_POST_SUCCESS:
       return Object.assign({}, state, {
@@ -20,7 +19,7 @@ export default function BlogReducer(state = initialState, action) {
       });
     case FETCH_POST_ERROR:
       return Object.assign({}, state, {
-        data: action.payload,
+        posts: action.payload,
         status: action.status
       });
     case FETCH_POST_PENDING:

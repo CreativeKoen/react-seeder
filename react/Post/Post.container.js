@@ -1,6 +1,6 @@
 // @flow
-'use strict';
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { show } from './Post.actions';
 
@@ -10,30 +10,38 @@ import { show } from './Post.actions';
     status: store.PostReducer.status
   }
 })
-export default class PostContainer extends Component {
+class PostContainer extends Component<void, PostProps, void> {
   constructor() {
     super();
   }
 
   componentDidMount() {
-    console.log(this.props);
     let { postID } = this.props.routeParams;
     this.props.dispatch(show(postID));
   }
 
-  render () {
+  render (): ?React$Element<any> {
     let { status, post } = this.props;
     return (
       <div className="container">
         <div className="page-header">
           <h1>React Blog</h1>
-          <small className="text-muted">{status}</small>
+          <small className="text-muted">status:&nbsp;{status}</small>
         </div>
         <div className="row">
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
+          <div className="col-xs-12">
+            <Link to="/" className="btn btn-primary"><i class="fa fa-arrow-left"></i> &nbsp;Go Back</Link>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
+          </div>
         </div>
       </div>
     )
   }
 }
+
+export default PostContainer;
