@@ -13,7 +13,8 @@
     "dev": "webpack-dev-server --content-base public --inline",
     "test": "mocha --compilers js:babel-core/register react/**/*.spec.js",
     "test:watch": "mocha --compilers js:babel-core/register react/**/*.spec.js --watch --reporter nyan",
-    "lint": "eslint react"
+    "lint": "eslint react",
+    "cover": "flow-coverage-report -i react/**/**/*.js -t html -t text"
   },
   "keywords": [],
   "license": "ISC",
@@ -59,6 +60,7 @@
     "browser-sync": "^2.11.1",
     "eslint": "^2.8.0",
     "eslint-plugin-react": "^5.0.1",
+    "flow-coverage-report": "^0.2.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-bump": "^1.0.0",
